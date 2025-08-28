@@ -1,0 +1,171 @@
+.transfer-management-container {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.main-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.search-filter-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.search-container {
+  flex: 1;
+}
+
+.search-container input {
+  width: 100%;
+}
+
+.filter-container {
+  min-width: 200px;
+}
+
+.table-container {
+  background: white;
+  border-radius: 6px;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.working-status-active {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.working-status-onboarding {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.working-status-inactive {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.status-confirm {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.status-reject {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.change-type-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.change-in {
+  background-color: #fff8e1;
+  color: #f57c00;
+}
+
+.change-out {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-container {
+    min-width: auto;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+/* PrimeNG Table Customization */
+::ng-deep .p-datatable {
+  border: 1px solid #e0e0e0;
+}
+
+::ng-deep .p-datatable .p-datatable-header {
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr:nth-child(even) {
+  background: #fafafa;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr:hover {
+  background: #f0f0f0;
+}
+
+/* Tab View Customization */
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-bottom-color: #2196f3;
+  color: #2196f3;
+}
+
+/* Button styling */
+::ng-deep .p-button.p-button-success {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+::ng-deep .p-button.p-button-success:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+::ng-deep .p-button.p-button-danger {
+  background-color: #f44336;
+  border-color: #f44336;
+}
+
+::ng-deep .p-button.p-button-danger:hover {
+  background-color: #da190b;
+  border-color: #da190b;
+}
+
+::ng-deep .p-button.p-button-info {
+  background-color: #2196f3;
+  border-color: #2196f3;
+}
+
+::ng-deep .p-button.p-button-info:hover {
+  background-color: #0b7dda;
+  border-color: #0b7dda;
+}

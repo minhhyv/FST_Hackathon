@@ -1,0 +1,85 @@
+<div class="transfer-management-container">
+    <!-- Transfer Manager Content -->
+    <div class="main-content">
+        <!-- Search and Filter Bar -->
+        <div class="search-filter-bar">
+            <div class="search-container">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText placeholder="Search employees..." [(ngModel)]="searchTerm"
+                        (input)="onSearch()" />
+                </span>
+            </div>
+
+            <div class="filter-container">
+                <p-dropdown [options]="typeOptions" [(ngModel)]="selectedType" optionLabel="name" placeholder="All Type"
+                    (onChange)="onTypeChange()">
+                </p-dropdown>
+            </div>
+        </div>
+
+        <!-- Transfer Management Table -->
+        <div class="table-container">
+            <p-table [value]="employees" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                responsiveLayout="scroll" [globalFilterFields]="['name','workingStatus','currentDept']"
+                [tableStyle]="{'min-width': '90rem'}">
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name">Employee <p-sortIcon field="name"></p-sortIcon></th>
+                        <th pSortableColumn="workingStatus">Working Status <p-sortIcon
+                                field="workingStatus"></p-sortIcon></th>
+                        <th pSortableColumn="currentDept">Current Dept <p-sortIcon field="currentDept"></p-sortIcon>
+                        </th>
+                        <th>Transfer To</th>
+                        <th>New Customer</th>
+                        <th>New Contract</th>
+                        <th>New Workplace</th>
+                        <th>Change Type</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-employee>
+                    <tr>
+                        <td>{{ employee.name }}</td>
+                        <td>
+                            <span class="status-badge"
+                                [ngClass]="'working-status-' + employee.workingStatus.toLowerCase()">
+                                {{ employee.workingStatus }}
+                            </span>
+                        </td>
+                        <td>{{ employee.currentDept }}</td>
+                        <td>{{ employee.transferTo }}</td>
+                        <td>{{ employee.newCustomer }}</td>
+                        <td>{{ employee.newContract }}</td>
+                        <td>{{ employee.newWorkplace }}</td>
+                        <td>
+                            <span class="change-type-badge" [ngClass]="getChangeTypeClass(employee.changeType)">
+                                {{ employee.changeType }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="status-badge" [ngClass]="getStatusClass(employee.status)">
+                                {{ employee.status }}
+                            </span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <p-button *ngIf="employee.status === 'Confirm'" label="Confirm" size="small"
+                                    severity="success" (click)="onConfirmEmployee(employee)">
+                                </p-button>
+                                <p-button *ngIf="employee.status === 'Reject'" label="Reject" size="small"
+                                    severity="danger" (click)="onRejectEmployee(employee)">
+                                </p-button>
+                                <p-button label="Edit" size="small" severity="info" (click)="onEditEmployee(employee)">
+                                </p-button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
