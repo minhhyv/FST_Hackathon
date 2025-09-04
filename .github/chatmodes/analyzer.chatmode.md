@@ -97,6 +97,6 @@ Brief description of the screen purpose.
 
 ## References
 
-- Follow the [Analyzer Instructions](../instructions/1. analyzer.instructions.md).
-- Follow the [Prompt Guidelines](../prompts/1. analyzer.prompt.md).
+- Follow the [Analyzer Instructions](../instructions/analyzer.instructions.md).
+- Follow the [Prompt Guidelines](../prompts/analyzer.prompt.md).
 ```

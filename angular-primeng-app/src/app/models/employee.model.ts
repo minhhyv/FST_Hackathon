@@ -1,20 +1,19 @@
 export interface Employee {
   id: string;
   name: string;
+  department: string;
   workingStatus: 'Active' | 'Onboarding' | 'Inactive';
-  currentDept: string;
-  transferTo?: string;
-  newCustomer?: string;
-  newContract?: string;
-  newWorkplace?: string;
-  changeType?: 'IN' | 'OUT';
-  status: 'Confirm' | 'Reject';
-  canEdit: boolean;
+  customer: string;
+  customerContract: string;
+  workplace: string;
+  changeType: 'Update' | 'IN' | 'OUT' | null;
+  isSelected?: boolean;
 }
 
 export interface Department {
   code: string;
   name: string;
+  isActive: boolean;
 }
 
 export interface StatusSummary {
@@ -22,16 +21,4 @@ export interface StatusSummary {
   inCount: number;
   outCount: number;
   totalCount: number;
-}
-
-export interface FilterOptions {
-  searchQuery: string;
-  selectedDepartment: string | null;
-  pageSize: number;
-  currentPage: number;
-}
-
-export interface TabItem {
-  label: string;
-  routerLink: string;
 }

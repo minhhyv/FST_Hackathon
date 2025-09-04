@@ -8,12 +8,6 @@ description: 'Angular 17 + PrimeNG 17 coding standards and best practices'
 
 Instructions for generating high-quality Angular applications with TypeScript, using **RxJS-based state management**, adhering to **Angular 17 best practices**, and leveraging **PrimeNG 17 UI components** (https://primeng.fjpservice.net/).
 
-> **Primary Angular v17 references**:
->
-> - Style Guide → https://v17.angular.io/guide/styleguide
-> - Security → https://v17.angular.io/guide/security
-> - Developer Guides (Routing, Forms, HTTP, Animations, etc.) → https://v17.angular.io/guide
-
 ---
 
 ## Project Context
@@ -79,6 +73,7 @@ Instructions for generating high-quality Angular applications with TypeScript, u
 - Use Flexbox/Grid for responsive layouts
 - Follow PrimeNG theming system (ref: https://primeng.fjpservice.net/)
 - Ensure accessibility compliance (ref: https://v17.angular.io/guide/accessibility)
+- Try to style look like input image (color, font, size, spacing, etc.)
 
 ### Animations
 

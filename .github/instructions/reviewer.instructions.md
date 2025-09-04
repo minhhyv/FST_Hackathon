@@ -48,7 +48,7 @@ Produce a **clear, actionable** review that:
 - **Styling & Theme**: SCSS, PrimeNG theming, a11y.
 - **Testing**: Unit tests via TestBed; HTTP mocked with `HttpClientTestingModule`; E2E (Protractor/Cypress).
 
-> Reference: [Angular Instructions](../instructions/2. builder.instructions.md)
+> Reference: [Angular Instructions](../instructions/builder.instructions.md)
 
 ## Output Format (Markdown)
 

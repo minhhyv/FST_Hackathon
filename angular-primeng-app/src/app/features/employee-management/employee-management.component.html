@@ -1,0 +1,156 @@
+<div class="employee-management-container">
+    <!-- Tab Navigation -->
+    <p-tabView [(activeIndex)]="activeTabIndex" (onChange)="onTabChange($event)">
+        <p-tabPanel header="Member Manager">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="search-controls">
+                    <div class="search-input">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search employees..." [value]="searchTerm"
+                                (input)="onSearchInput($event)" class="w-full">
+                        </span>
+                    </div>
+                    <div class="department-filter">
+                        <p-dropdown [options]="(departments$ | async) || []" [(ngModel)]="selectedDepartment"
+                            (onChange)="onDepartmentChange($event.value)" optionLabel="name" placeholder="All Dept"
+                            [showClear]="true">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Summary Cards -->
+            <div class="status-summary" *ngIf="statusSummary$ | async as summary">
+                <div class="summary-cards">
+                    <p-card class="status-card update-card">
+                        <div class="status-content">
+                            <div class="status-label">Update</div>
+                            <div class="status-count">{{ summary.updateCount }}</div>
+                        </div>
+                    </p-card>
+
+                    <p-card class="status-card in-card">
+                        <div class="status-content">
+                            <div class="status-label">IN</div>
+                            <div class="status-count">{{ summary.inCount }}</div>
+                        </div>
+                    </p-card>
+
+                    <p-card class="status-card out-card">
+                        <div class="status-content">
+                            <div class="status-label">OUT</div>
+                            <div class="status-count">{{ summary.outCount }}</div>
+                        </div>
+                    </p-card>
+
+                    <p-card class="status-card total-card">
+                        <div class="status-content">
+                            <div class="status-label">Totals</div>
+                            <div class="status-count">{{ summary.totalCount }}</div>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-bar">
+                <p-button label="Bulk Update" icon="pi pi-refresh" (onClick)="onBulkUpdate()"
+                    [disabled]="selectedEmployees.length === 0" styleClass="p-button-secondary">
+                </p-button>
+
+                <p-button label="Request Employees" icon="pi pi-plus" (onClick)="onRequestEmployees()"
+                    styleClass="p-button-primary">
+                </p-button>
+            </div>
+
+            <!-- Employee Table -->
+            <div class="employee-table">
+                <p-table [value]="(employees$ | async) || []" [(selection)]="selectedEmployees" [paginator]="true"
+                    [rows]="rows" [first]="first" [responsive]="true" selectionMode="multiple"
+                    styleClass="p-datatable-gridlines">
+
+                    <!-- Selection Column -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 3rem">
+                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            </th>
+                            <th>Employee</th>
+                            <th>Dept</th>
+                            <th>Working Status</th>
+                            <th>Customer</th>
+                            <th>Customer Contract</th>
+                            <th>Workplace</th>
+                            <th>Change Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-employee let-rowIndex="rowIndex">
+                        <tr>
+                            <td>
+                                <p-tableCheckbox [value]="employee"></p-tableCheckbox>
+                            </td>
+                            <td>
+                                <span class="employee-name">{{ employee.name }}</span>
+                            </td>
+                            <td>{{ employee.department }}</td>
+                            <td>
+                                <p-tag [value]="employee.workingStatus"
+                                    [severity]="getStatusSeverity(employee.workingStatus)">
+                                </p-tag>
+                            </td>
+                            <td>{{ employee.customer }}</td>
+                            <td>{{ employee.customerContract }}</td>
+                            <td>{{ employee.workplace }}</td>
+                            <td>
+                                <span *ngIf="employee.changeType" class="change-type"
+                                    [ngClass]="getChangeTypeClass(employee.changeType)">
+                                    {{ employee.changeType }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <p-button icon="pi pi-pencil" (onClick)="onEditEmployee(employee)"
+                                        styleClass="p-button-text p-button-rounded" pTooltip="Edit Employee"
+                                        tooltipPosition="top">
+                                    </p-button>
+
+                                    <p-button icon="pi pi-eye" (onClick)="onViewEmployee(employee)"
+                                        styleClass="p-button-text p-button-rounded" pTooltip="View Employee"
+                                        tooltipPosition="top">
+                                    </p-button>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="9" class="text-center">
+                                <div class="empty-state">
+                                    <i class="pi pi-users"
+                                        style="font-size: 3rem; color: var(--text-color-secondary);"></i>
+                                    <p>No employees found</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Transfer Manager">
+            <div class="transfer-manager-placeholder">
+                <div class="placeholder-content">
+                    <i class="pi pi-arrow-right-arrow-left"
+                        style="font-size: 3rem; color: var(--text-color-secondary);"></i>
+                    <h3>Transfer Manager</h3>
+                    <p>Transfer management functionality will be implemented here.</p>
+                </div>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</div>

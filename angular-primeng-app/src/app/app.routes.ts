@@ -3,11 +3,12 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/member-manager',
+    redirectTo: '/employee-management',
     pathMatch: 'full'
   },
   {
-    path: 'member-manager',
-    loadChildren: () => import('./features/member-manager/member-manager.module').then(m => m.MemberManagerModule)
+    path: 'employee-management',
+    loadComponent: () => import('./features/employee-management/employee-management.component')
+      .then(m => m.EmployeeManagementComponent)
   }
 ];

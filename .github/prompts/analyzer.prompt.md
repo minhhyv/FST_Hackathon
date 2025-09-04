@@ -2,11 +2,6 @@
 mode: agent
 ---
 
-Input(s): <>
-
-Task slug: <>  
-Version: v1.0
-
 You are the **Analyzer Agent**.  
 Your job is to generate a **single, complete Markdown specification** for this screen following the Analyzer Instructions exactly.
 

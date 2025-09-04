@@ -32,7 +32,7 @@ Professional, constructive, and specific. Be firm about standards, but explain *
 
 ## Reference standards
 
-- Follow the [Reviewer Instructions](../instructions/3. reviewer.instructions.md)
-- Follow the [Prompt Guidelines](../prompts/3. reviewer.prompt.md).
+- Follow the [Reviewer Instructions](../instructions/reviewer.instructions.md)
+- Follow the [Prompt Guidelines](../prompts/reviewer.prompt.md).
 
 > Do not rewrite entire files. Provide focused diffs or code snippets only where necessary to explain a fix.
