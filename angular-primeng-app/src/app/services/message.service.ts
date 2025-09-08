@@ -1,46 +1,41 @@
 import { Injectable } from '@angular/core';
-import { MessageService as PrimeMessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MessageService {
-  
-  constructor(private primeMessageService: PrimeMessageService) {}
+export class AppMessageService {
+  constructor(private messageService: MessageService) {}
 
-  showSuccess(detail: string, summary = 'Success'): void {
-    this.primeMessageService.add({
+  showSuccess(message: string): void {
+    this.messageService.add({
       severity: 'success',
-      summary,
-      detail
+      summary: 'Success',
+      detail: message
     });
   }
 
-  showInfo(detail: string, summary = 'Info'): void {
-    this.primeMessageService.add({
-      severity: 'info',
-      summary,
-      detail
-    });
-  }
-
-  showWarn(detail: string, summary = 'Warning'): void {
-    this.primeMessageService.add({
-      severity: 'warn',
-      summary,
-      detail
-    });
-  }
-
-  showError(detail: string, summary = 'Error'): void {
-    this.primeMessageService.add({
+  showError(message: string): void {
+    this.messageService.add({
       severity: 'error',
-      summary,
-      detail
+      summary: 'Error',
+      detail: message
     });
   }
 
-  clear(): void {
-    this.primeMessageService.clear();
+  showInfo(message: string): void {
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Info',
+      detail: message
+    });
+  }
+
+  showWarning(message: string): void {
+    this.messageService.add({
+      severity: 'warn',
+      summary: 'Warning',
+      detail: message
+    });
   }
 }

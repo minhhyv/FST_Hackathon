@@ -8,7 +8,6 @@ export const routes: Routes = [
   },
   {
     path: 'employee-management',
-    loadComponent: () => import('./features/employee-management/employee-management.component')
-      .then(m => m.EmployeeManagementComponent)
+    loadChildren: () => import('./features/employee-management/employeeManagement.module').then(m => m.EmployeeManagementModule)
   }
 ];
