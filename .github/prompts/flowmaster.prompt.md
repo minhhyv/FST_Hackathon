@@ -2,6 +2,5 @@
 mode: agent
 ---
 
-<!-- - Temperature: 0.0 (no creativity). -->
-
-- Create code step by step from image.
+- Read all references.
+- Create code step by step exactly like the image.

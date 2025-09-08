@@ -13,7 +13,7 @@ Your mission is to automate the workflow of generating Angular code from a desig
 
    - Input: image design and prompt
    - Output: create analyzer output (Markdown spec) in ../docs/analyzer/analyzer_output.md
-   - Instructions: Read Analyzer Agent using [Analyzer Guidelines](../instructions/analyzer.instructions.md) and Read Analyzer Prompt using [Analyzer Prompt Guidelines](../prompts/analyzer.prompt.md).
+   - Instructions: Read Analyzer Agent using [Analyzer Guidelines](../instructions/analyzer2.instructions.md) and Read Analyzer Prompt using [Analyzer Prompt Guidelines](../prompts/analyzer2.prompt.md).
    - Goal: Generate a structured Markdown prototype including:
      - Overview
      - Layout
@@ -26,7 +26,7 @@ Your mission is to automate the workflow of generating Angular code from a desig
 
    - Input: Analyzer output file from ../docs/analyzer/analyzer_output.md
    - Output: source code, create builder output (code) in ../docs/implementationsReport/builder_output.md
-   - Instructions: Read Builder Agent using [Builder Guidelines](../instructions/builder.instructions.md) and Read Builder Prompt using [Builder Prompt Guidelines](../prompts/builder.prompt.md).
+   - Instructions: Read Builder Agent using [Builder Guidelines](../instructions/builder2.instructions.md) and Read Builder Prompt using [Builder Prompt Guidelines](../prompts/builder2.prompt.md).
    - Goal: Create a complete Angular 17 + PrimeNG 17 frontend project based on the UI specification provided in the analyzer output.
 
 3. **Reviewer Step**

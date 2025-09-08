@@ -1,0 +1,160 @@
+---
+applyTo: "**/*.ts, **/*.html, **/*.scss, **/*.css"
+---
+
+description: 'Angular 17 + PrimeNG 17 coding standards and best practices'
+
+# Angular Development Instructions
+
+Instructions for generating high-quality Angular applications with TypeScript, using **RxJS-based state management**, adhering to **Angular 17 best practices**, and leveraging **PrimeNG 17 UI components** (https://primeng.fjpservice.net/).
+
+---
+
+## Project Context
+
+- Angular **17**
+- PrimeNG **17**
+- TypeScript with `strict` typing enabled
+- Angular CLI for project setup and scaffolding
+- Consistent use of Angular **Style Guide** (https://v17.angular.io/guide/styleguide)
+- PrimeNG components for UI (docs: https://primeng.fjpservice.net/)
+
+---
+
+## Development Standards
+
+### Architecture
+
+- Organize code by **feature NgModules** (ref: https://v17.angular.io/guide/architecture-modules)
+- Use **lazy loading** for feature modules (ref: https://v17.angular.io/guide/lazy-loading-ngmodules)
+- Apply **dependency injection** via constructors (ref: https://v17.angular.io/guide/dependency-injection)
+- Maintain clear separation: smart vs presentational components (ref: https://v17.angular.io/guide/styleguide#smart-and-dumb)
+
+### Routing & Navigation
+
+- Configure routes with Angular Router (ref: https://v17.angular.io/guide/router)
+- Each feature may have its own `feature-routing.module.ts`
+- Use guards for authentication/authorization (ref: https://v17.angular.io/guide/router#milestone-5-route-guards)
+- Follow common routing tasks consistently (ref: https://v17.angular.io/guide/router#common-routing-tasks)
+
+### Forms
+
+- Prefer **Reactive Forms** (ref: https://v17.angular.io/guide/reactive-forms)
+- Validate with built-in and custom validators (ref: https://v17.angular.io/guide/form-validation)
+- For dynamic forms, use **FormArray** / **FormBuilder** (ref: https://v17.angular.io/guide/dynamic-form)
+
+### TypeScript
+
+- Enable `strict` mode in `tsconfig.json` (ref: https://v17.angular.io/guide/typescript-configuration)
+- Classes & interfaces in **PascalCase**, variables/methods in **camelCase**
+- Define interfaces/models for API responses and entities (ref: https://v17.angular.io/guide/styleguide#types)
+- Use union types, type guards, and generics to enforce safety
+
+### Component Design
+
+- Implement lifecycle hooks properly (ref: https://v17.angular.io/guide/lifecycle-hooks)
+- Use decorators (`@Input`, `@Output`, `@ViewChild`) (ref: https://v17.angular.io/guide/inputs-outputs)
+- Apply `ChangeDetectionStrategy.OnPush` when beneficial (ref: https://v17.angular.io/guide/change-detection)
+- Keep templates declarative and lean; move business logic to services
+- Create reusable directives and pipes (ref: https://v17.angular.io/guide/pipes)
+
+### HTTP Client
+
+- Use Angular **HttpClient** with typed responses (ref: https://v17.angular.io/guide/http)
+- Manage requests with RxJS operators (`map`, `switchMap`, `catchError`)
+- Use interceptors for auth, headers, and error handling (ref: https://v17.angular.io/guide/http#intercepting-requests-and-responses)
+- Implement XSRF protection (ref: https://v17.angular.io/guide/http#security-xsrf-protection)
+- Always unsubscribe using `AsyncPipe` or `takeUntil`
+
+### Styling
+
+- Default `ViewEncapsulation.Emulated` (ref: https://v17.angular.io/api/core/ViewEncapsulation)
+- Prefer SCSS with shared variables/mixins (ref: https://v17.angular.io/guide/workspace-config#style-preprocessor-options)
+- Use Flexbox/Grid for responsive layouts
+- Follow PrimeNG theming system (ref: https://primeng.fjpservice.net/)
+- Ensure accessibility compliance (ref: https://v17.angular.io/guide/accessibility)
+- Try to style look like input image (color, font, size, spacing, etc.)
+
+### Animations
+
+- Use Angular Animations API (ref: https://v17.angular.io/guide/animations)
+- Define triggers inside component metadata
+- Reuse animation triggers across components where applicable
+
+### State Management
+
+- Angular 17 **does not support Signals**
+- Use **RxJS services** with `BehaviorSubject` / `ReplaySubject` for state
+- Consume Observables in templates with `AsyncPipe` (ref: https://v17.angular.io/api/common/AsyncPipe)
+- Consider NgRx for larger/complex domains (ref: https://ngrx.io/guide/store)
+
+### Security
+
+- Follow Angular Security Guide (ref: https://v17.angular.io/guide/security)
+- Sanitize untrusted input automatically
+- Apply Route Guards for secure navigation
+- Avoid direct DOM manipulation with `ElementRef.nativeElement`
+- Use trusted values and enforce CSP where possible
+
+### Performance
+
+- Use `ng build --prod` for production builds (ref: https://v17.angular.io/guide/build)
+- Optimize with lazy-loaded routes/components
+- Apply `OnPush` strategy where beneficial
+- Always use `trackBy` in `*ngFor`
+- Consider Angular Universal SSR for SEO (ref: https://v17.angular.io/guide/universal)
+
+### Testing
+
+- Write unit tests with Jasmine + Karma (ref: https://v17.angular.io/guide/testing)
+- Component testing with **TestBed** (ref: https://v17.angular.io/guide/testing-components-basics)
+- Mock HTTP requests with `HttpClientTestingModule` (ref: https://v17.angular.io/guide/http#testing-http-requests)
+- E2E tests using Protractor (default in v17) or Cypress (ref: https://v17.angular.io/guide/e2e-testing)
+
+---
+
+## Source Structure Overview (Flexible)
+
+This project follows a **core + feature** structure. Input specs may define new features (e.g., `idleListResource`), but the following folders must always exist:
+
+### Core Folders
+
+- `services/` — cross-feature services (e.g., `auth.service.ts`, `message.service.ts`)
+- `models/` — global interfaces and types
+- `pipe/` — reusable pipes (pure when possible)
+- `enum/` — enums (file name camelCase, enum name PascalCase)
+- `theme/` — SCSS variables, mixins, base styles
+- `utils/` — pure TypeScript helpers
+- `features/` — all domain features are created here
+  - <featureName>/
+    - <featureName>.component.ts
+    - <featureName>.component.html
+    - <featureName>.component.scss
+    - <featureName>-routing.module.ts # optional if routes are centralized index.ts # optional barrel
+- `assets/` — static files (images, i18n, mock JSON)
+
+### Hard Rules
+
+- **NEVER** place models or services inside component folders.
+- **Components are dumb**: keep only input/output and template logic inside them.
+- **All data/state logic must go to services** inside `/services/`.
+- **All type/interface definitions must go to `/models/`.**
+
+### Naming Conventions
+
+- **Classes & Interfaces:** PascalCase → `AuthService`, `UserProfile`
+- **Variables / Methods:** camelCase → `isLoggedIn`, `loadUserData()`
+- **Components:** camelCase file names → `userProfile.component.ts`
+- **Services:** `feature.service.ts` → `auth.service.ts`
+- **Modules:** `feature.module.ts` → `LoginModule`
+- **Routing Modules:** `feature-routing.module.ts`
+- **Enums:** in `enum/`, file names camelCase, identifiers PascalCase
+- **Folders:** prefer lowercase-with-dashes → `user-profile/`
+
+### Consistency Rules
+
+- Datatables and pagination must use the same PrimeNG pattern across features:
+  - `[paginator]="true"`, `[rows]`, `[totalRecords]`, `(onPage)` signature consistent
+  - Column templates standardized (`pTemplate="header"`, `pTemplate="body" let-row`)
+  - Always include `trackBy` in `*ngFor`
+- Toasts/alerts must use a shared `message.service.ts`
