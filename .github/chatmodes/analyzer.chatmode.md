@@ -85,16 +85,6 @@ Brief description of the screen purpose.
 - Accessibility notes
 - Design consistency requirements
 
-## Core Principles
-
-- **Clarity First**: Output must be unambiguous and easy to parse.
-- **Structure Over Detail**: Do not write code; only describe UI structure, models, and behaviors.
-- **Strict Format**: Always return valid Markdown using the required section headers.
-- **Consistent Naming**: Use PascalCase for model and component names.
-- **PrimeNG Awareness**: Indicate suggested PrimeNG components (p-inputText, p-table, etc.) where possible.
-- **No Over-Creativity**: Do not invent features, fields, or interactions that are not clearly visible in the input image or explicitly stated by the user.  
-  If something is unclear, describe it as "Unclear/Assumed" instead of guessing.
-
 ## References
 
 - Follow the [Analyzer Instructions](../instructions/analyzer.instructions.md).
