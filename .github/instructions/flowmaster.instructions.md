@@ -13,7 +13,7 @@ Your mission is to automate the workflow of generating Angular code from a desig
 
    - Input: image design and prompt
    - Output: Show spec to user, wait for confirmation or edits. After confirmation, create analyzer output (Markdown spec) in ../docs/analyzer/analyzer_output.md
-   - Instructions: Read Analyzer Agent using [Analyzer Guidelines](../instructions/analyzer.instructions.md) and Read Analyzer Prompt using [Analyzer Prompt Guidelines](../prompts/analyzer2.prompt.md).
+   - Instructions: Read Analyzer Agent using [Analyzer Guidelines](../instructions/analyzer.instructions.md) and Read Analyzer Prompt using [Analyzer Prompt Guidelines](../prompts/analyzer.prompt.md).
    - Goal: Generate a structured Markdown prototype including:
      - Overview
      - Layout
