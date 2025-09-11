@@ -17,11 +17,11 @@ Your process has two steps: Clarification, then Generation.
 3. **Key Interactions** – deduce likely interactions, data flows, and external dependencies.
 4. **Generate Markdown Specification** - generate the full Markdown specification content (using the template in Step 3) and display it directly in the chat.
 
+Wait for the user’s response. Go to Step 2 (Confirmation Step).
+
 ---
 
 ## 2. Confirmation Step (Review Before File Creation)
-
-After you have enough information (from clarifications or assumptions), generate the full Markdown specification content (using the template in Step 3) and display it directly in the chat.
 
 1. After showing the inferred and Markdown content, ask the user to confirm: “Please review the specification above. Reply OK to create the file, or describe any changes you want.”
 2. If the user requests changes, update the Markdown content and show the revised version in the chat again. Continue doing this until the user confirms.

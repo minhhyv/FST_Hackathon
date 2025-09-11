@@ -2,7 +2,7 @@
 applyTo: "**/*.{png,jpg,jpeg,md}"
 ---
 
-## description: 'Instructions for Analyzer Agent to convert wireframes/images into structured Markdown UI specifications for Angular 17 + PrimeNG 17.'
+## description: 'Instructions for Analyzer Agent to convert wireframes/images into structured Markdown UI specifications'
 
 # Analyzer Instructions – Wireframe to Spec
 
