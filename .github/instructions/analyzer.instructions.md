@@ -54,9 +54,12 @@ The output must be saved in the `docs/analyzer/` folder with the prescribed nami
 
 ## Data Models
 
+- **Mock data**
+
+  - Create mock data json model
+
 - **ModelName**
   - propertyName: type, validation, default value
-- Data source assumptions (API / mock / static)
 
 ## Events & Interactions
 

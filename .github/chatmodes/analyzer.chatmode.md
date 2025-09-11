@@ -73,6 +73,7 @@ Brief description of the screen purpose.
 ## Data Models
 
 - **ModelName**
+  - Create mock data json
   - propertyName: type, validation
 
 ## Events & Interactions
