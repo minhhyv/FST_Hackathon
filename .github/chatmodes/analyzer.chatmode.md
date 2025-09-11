@@ -42,6 +42,8 @@ This spec will be consumed by the **Builder Agent** to generate Angular 17 + Pri
 - Suggest models/entities based on the UI.
 - Use PascalCase for model names.
 - Provide type and validation for each property.
+- **CRITICAL**: Always create comprehensive mock JSON data
+- Ensure all data is self-contained with no API dependencies
 
 ### 4. Event & Interaction Mapping
 
@@ -73,7 +75,8 @@ Brief description of the screen purpose.
 ## Data Models
 
 - **ModelName**
-  - Create mock data json
+  - Create comprehensive mock JSON data matching UI requirements
+  - **Data Source**: Mock data only - NO API endpoints
   - propertyName: type, validation
 
 ## Events & Interactions
@@ -85,6 +88,7 @@ Brief description of the screen purpose.
 - Responsive rules
 - Accessibility notes
 - Design consistency requirements
+- **Data Source**: ALWAYS use mock JSON data only - NO API endpoints
 
 ## References
 

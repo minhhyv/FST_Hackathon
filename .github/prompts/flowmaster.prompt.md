@@ -55,6 +55,7 @@ When user provides an image, ask for clarification on:
 - Target user roles and permissions
 - Key interactions not obvious from the image
 - Any specific business rules or constraints
+- **CRITICAL**: Emphasize that all implementations must use ONLY mock data
 
 ### Output Deliverables
 
@@ -71,3 +72,4 @@ Present final results as:
 - Responsive design implementation
 - Accessibility standards met
 - TypeScript strict mode compliance
+- **CRITICAL**: All generated code uses ONLY mock JSON data - NO API integrations

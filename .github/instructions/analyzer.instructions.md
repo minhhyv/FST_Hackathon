@@ -56,10 +56,14 @@ The output must be saved in the `docs/analyzer/` folder with the prescribed nami
 
 - **Mock data**
 
-  - Create mock data json model
+  - Create comprehensive mock data json model
+  - **CRITICAL**: Always specify mock data as the primary data source
+  - Include realistic sample data that matches the UI requirements
+  - Structure data to be self-contained (no external API dependencies)
 
 - **ModelName**
   - propertyName: type, validation, default value
+  - **Data Source**: Mock JSON data only (no API endpoints)
 
 ## Events & Interactions
 
@@ -72,6 +76,7 @@ The output must be saved in the `docs/analyzer/` folder with the prescribed nami
 - Responsive rules
 - Accessibility (labels, ARIA, keyboard navigation)
 - Design consistency requirements
+- **Data Source**: ALWAYS use mock JSON data only - NO API endpoints
 - List any assumptions made due to missing info
 - Localization/i18n requirements
 ```
