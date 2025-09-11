@@ -1,0 +1,335 @@
+<div class="employee-dashboard" *ngIf="!isLoading && employee">
+  <!-- Header Section -->
+  <div class="top-navigation">
+    <div class="nav-left">
+      <button class="hamburger-menu" type="button">
+        <i class="pi pi-bars"></i>
+      </button>
+      <span class="nav-title">Talent Management</span>
+    </div>
+    <div class="nav-right">
+      <div class="language-selector">
+        <span>English</span>
+        <i class="pi pi-chevron-down"></i>
+      </div>
+      <div class="user-profile">
+        <p-avatar 
+          [image]="getUserAvatar()" 
+          shape="circle" 
+          size="normal">
+        </p-avatar>
+        <span class="username">PhucNKM2</span>
+        <i class="pi pi-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Content Area -->
+  <div class="page-content">
+    <!-- Employee Info Title -->
+    <div class="page-header">
+      <h1 class="page-title">Employee Info</h1>
+    </div>
+
+    <!-- Employee Profile Section -->
+    <div class="employee-profile-section">
+      <div class="profile-card">
+        <div class="profile-left">
+          <p-avatar 
+            [image]="getEmployeeAvatar()" 
+            size="xlarge" 
+            shape="circle"
+            styleClass="profile-avatar">
+          </p-avatar>
+          <div class="profile-info">
+            <h2 class="employee-name">{{ employee.fullName }}</h2>
+            <p class="employee-details">{{ employee.employeeId }} - MinhMT10</p>
+            <p class="employee-department">{{ employee.department }} - {{ employee.position }}</p>
+            <span class="status-badge">Working</span>
+          </div>
+        </div>
+        <div class="profile-right">
+          <button class="menu-button" type="button">
+            <i class="pi pi-ellipsis-h"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Contract Details Grid -->
+      <div class="contract-details-grid">
+        <div class="detail-item">
+          <label>Contract Type</label>
+          <span>{{ employee.contractInfo.contractType }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Dept Leader</label>
+          <span>TuanTT</span>
+        </div>
+        <div class="detail-item">
+          <label>Joined Date</label>
+          <span>{{ employee.contractInfo.startDate }}</span>
+        </div>
+        <div class="detail-item">
+          <label>FPT Level</label>
+          <span>2.1N</span>
+        </div>
+        <div class="detail-item">
+          <label>Position</label>
+          <span>{{ employee.contractInfo.position }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Job Rank</label>
+          <span>{{ employee.contractInfo.department }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Workplace</label>
+          <span>{{ employee.contractInfo.level }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Language</label>
+          <span>{{ employee.contractInfo.grade }}</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="navigation-tabs">
+        <button class="tab-button active" type="button">Overview</button>
+        <button class="tab-button" type="button">Timesheet & Study Hours</button>
+        <button class="tab-button" type="button">AHP Survey</button>
+        <button class="tab-button" type="button">EES Survey</button>
+        <button class="tab-button" type="button">EX Survey</button>
+      </div>
+    </div>
+
+    <!-- Charts and Content Section -->
+    <div class="content-section">
+      <!-- Top Cards Row -->
+      <div class="top-cards-row">
+        <!-- FJP FST Section -->
+        <div class="info-card">
+          <div class="card-header">
+            <h3>FJP FST</h3>
+          </div>
+          <div class="card-content">
+            <h4>Department Changes</h4>
+            <div class="change-list">
+              <div class="change-item">
+                <span class="date">2024/12/12:</span>
+                <span class="change">FJP FST</span>
+              </div>
+              <div class="change-item">
+                <span class="date">2023/02/12:</span>
+                <span class="change">FJP HR</span>
+              </div>
+            </div>
+            <span class="view-all">View All <i class="pi pi-angle-right"></i></span>
+          </div>
+        </div>
+
+        <!-- PITS Section -->
+        <div class="info-card">
+          <div class="card-header">
+            <h3>PITS</h3>
+          </div>
+          <div class="card-content">
+            <h4>Assignment Changes</h4>
+            <div class="change-list">
+              <div class="change-item">
+                <span class="date">2024/12/12:</span>
+                <span class="change">PITS</span>
+              </div>
+              <div class="change-item">
+                <span class="date">2023/02/12:</span>
+                <span class="change">PTP</span>
+              </div>
+            </div>
+            <span class="view-all">View All <i class="pi pi-angle-right"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHE Evaluation Chart Section -->
+      <div class="main-chart-section">
+        <div class="chart-container">
+          <div class="chart-header">
+            <h3><i class="pi pi-chart-line"></i> CHE Evaluation & Job Rank</h3>
+            <div class="chart-controls">
+              <select class="year-selector">
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025" selected>2025</option>
+              </select>
+              <span class="tilde">~</span>
+              <select class="year-selector">
+                <option value="2024">2024</option>
+                <option value="2025" selected>2025</option>
+                <option value="2026">2026</option>
+              </select>
+            </div>
+          </div>
+          <p-chart 
+            type="line" 
+            [data]="employee.performanceData.creEvaluation"
+            [options]="chartOptions"
+            (onHover)="onChartHover($event)"
+            height="400px">
+          </p-chart>
+        </div>
+      </div>
+
+      <!-- Bottom Content Grid -->
+      <div class="bottom-content-grid">
+        <!-- Left Column -->
+        <div class="left-column">
+          <!-- Certificates Section -->
+          <div class="info-panel">
+            <div class="panel-header">
+              <h3><i class="pi pi-verified"></i> Certificate</h3>
+              <span class="view-all">View All <i class="pi pi-angle-right"></i></span>
+            </div>
+            <div class="certificates-list">
+              <div 
+                class="certificate-item" 
+                *ngFor="let certificate of employee.certificates; trackBy: trackByCertificateId"
+                (click)="onCertificateClick(certificate)">
+                <div class="certificate-icon">
+                  <i class="pi pi-verified text-orange-500"></i>
+                </div>
+                <div class="certificate-details">
+                  <strong>{{ certificate.name }}</strong>
+                  <p>{{ certificate.issueDate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Awards Section -->
+          <div class="info-panel">
+            <div class="panel-header">
+              <h3><i class="pi pi-star"></i> Award</h3>
+              <span class="view-all">View All <i class="pi pi-angle-right"></i></span>
+            </div>
+            <div class="awards-list">
+              <div 
+                class="award-item"
+                *ngFor="let award of employee.awards; trackBy: trackByAwardId"
+                (click)="onAwardClick(award)">
+                <div class="award-icon">
+                  <i class="pi pi-star text-orange-500"></i>
+                </div>
+                <div class="award-details">
+                  <strong>{{ award.title }}</strong>
+                  <p>{{ award.awardDate }}</p>
+                  <div class="award-badges">
+                    <span class="badge badge-blue" *ngIf="award.category === 'Performance'">Excellent Performance</span>
+                    <span class="badge badge-orange" *ngIf="award.category === 'Leadership'">FSOFT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exit History Section -->
+          <div class="info-panel">
+            <div class="panel-header">
+              <h3><i class="pi pi-history"></i> Exit History</h3>
+              <span class="view-all">View All <i class="pi pi-angle-right"></i></span>
+            </div>
+            <div class="history-list">
+              <div 
+                class="history-item"
+                *ngFor="let history of employee.workHistory; trackBy: trackByHistoryId"
+                (click)="onHistoryItemClick(history)">
+                <div class="history-icon">
+                  <i class="pi pi-history text-orange-500"></i>
+                </div>
+                <div class="history-details">
+                  <strong>{{ history.position }}</strong>
+                  <p>{{ history.period }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pay Roll Section -->
+          <div class="info-panel">
+            <div class="panel-header">
+              <h3><i class="pi pi-money-bill"></i> Pay Roll</h3>
+              <span class="view-all">View All <i class="pi pi-angle-right"></i></span>
+            </div>
+            <div class="payroll-item">
+              <div class="payroll-icon">
+                <i class="pi pi-money-bill text-orange-500"></i>
+              </div>
+              <span>View All</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Additional Charts -->
+        <div class="right-column">
+          <div class="charts-container">
+            <!-- Timesheet & Study Hours Chart -->
+            <div class="chart-section">
+              <h3>Timesheet & Study Hours</h3>
+              <p-chart 
+                type="bar" 
+                [data]="employee.performanceData.timesheetData"
+                [options]="chartOptions"
+                (onHover)="onChartHover($event)"
+                height="300px">
+              </p-chart>
+            </div>
+
+            <!-- Audit Survey Chart -->
+            <div class="chart-section">
+              <h3>Audit Survey</h3>
+              <p-chart 
+                type="line" 
+                [data]="employee.performanceData.auditSurveyData"
+                [options]="chartOptions"
+                (onHover)="onChartHover($event)"
+                height="300px">
+              </p-chart>
+            </div>
+
+            <!-- ESS Survey Chart -->
+            <div class="chart-section">
+              <h3>ESS Survey</h3>
+              <p-chart 
+                type="bar" 
+                [data]="employee.performanceData.essSurveyData"
+                [options]="chartOptions"
+                (onHover)="onChartHover($event)"
+                height="300px">
+              </p-chart>
+            </div>
+
+            <!-- ES Survey Chart -->
+            <div class="chart-section">
+              <h3>ES Survey</h3>
+              <p-chart 
+                type="radar" 
+                [data]="employee.performanceData.essSurveyData"
+                [options]="chartOptions"
+                (onHover)="onChartHover($event)"
+                height="300px">
+              </p-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Spinner -->
+<div class="loading-container" *ngIf="isLoading">
+  <p-progressSpinner></p-progressSpinner>
+  <p>Loading employee information...</p>
+</div>
+
+<!-- Error Message -->
+<div class="error-container" *ngIf="errorMessage && !isLoading">
+  <p-message severity="error" [text]="errorMessage"></p-message>
+</div>
