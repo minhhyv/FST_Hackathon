@@ -46,7 +46,6 @@ Produce a **clear, actionable** review that:
 - **HTTP & RxJS**: HttpClient typed responses, interceptors, `catchError`, `shareReplay` when caching, unsubscribe via `AsyncPipe` or `takeUntil`.
 - **Templates**: declarative, minimal logic, `trackBy` in `*ngFor`, consistent datatable/pagination pattern.
 - **Styling & Theme**: SCSS, PrimeNG theming, a11y.
-- **Testing**: Unit tests via TestBed; HTTP mocked with `HttpClientTestingModule`; E2E (Protractor/Cypress).
 
 > Reference: [Angular Instructions](../instructions/builder.instructions.md)
 

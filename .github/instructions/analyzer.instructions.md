@@ -56,7 +56,7 @@ The output must be saved in the `docs/analyzer/` folder with the prescribed nami
 
 - **ModelName**
   - propertyName: type, validation, default value
-- Data source assumptions (API / mock / static)
+- Data source assumptions (mock / static)
 
 ## Events & Interactions
 

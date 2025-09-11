@@ -35,8 +35,6 @@ Your job is to generate Angular 17 + PrimeNG 17 code based on the Analyzer's Mar
     - `feature.component.ts`
     - `feature.component.html`
     - `feature.component.scss`
-    - `feature.service.ts`
-    - `feature.model.ts`
   - Keep logic in services; keep templates declarative and clean.
 
 - **Output Format**

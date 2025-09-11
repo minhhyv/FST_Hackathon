@@ -10,17 +10,12 @@ Your process has two steps: Clarification, then Generation.
 
 ## 1. Clarification Step
 
-Before generating the specification, you **must** ask the user for clarification on the following points to ensure accuracy. Present these as a numbered list.
+**Automatically infer**:
 
-1. **Main Purpose**: What is the primary goal of this screen? (e.g., creating a new user, displaying a list of products, showing a dashboard)
-2. **User Roles**: Which user roles will interact with this screen and what can they do? (e.g., Admin can edit/delete, User can only view)
-3. **Key Interactions**: Are there any critical interactions or data flows not immediately obvious from the image? (e.g., clicking a table row opens a details panel, the form requires a call to an external API for validation)
-
-Wait for the user’s response.
-
-- If the user provides answers, reflect them in a clear summary and show this summary back to the user for confirmation or further edits.
-- If the user makes changes or adds details, update the summary and display the revised result again — repeat until the user confirms it is correct.
-- If the user does not respond or says “just proceed,” continue by making reasonable assumptions and clearly document them in the final "Constraints & Assumptions" section.
+1. **Main Purpose** – deduce the primary goal of the screen.
+2. **User Roles** – deduce which roles would interact with this screen and their possible permissions.
+3. **Key Interactions** – deduce likely interactions, data flows, and external dependencies.
+4. **Generate Markdown Specification** - generate the full Markdown specification content (using the template in Step 3) and display it directly in the chat.
 
 ---
 
@@ -28,14 +23,9 @@ Wait for the user’s response.
 
 After you have enough information (from clarifications or assumptions), generate the full Markdown specification content (using the template in Step 3) and display it directly in the chat.
 
-1. After showing the Markdown content, ask the user to confirm:  
-   “Please review the specification above. Reply OK to create the file, or describe any changes you want.”
-
-2. If the user requests changes, update the Markdown content and show the revised version in the chat again.  
-   Continue doing this until the user confirms.
-
+1. After showing the inferred and Markdown content, ask the user to confirm: “Please review the specification above. Reply OK to create the file, or describe any changes you want.”
+2. If the user requests changes, update the Markdown content and show the revised version in the chat again. Continue doing this until the user confirms.
 3. **Only when the user confirms** (e.g., OK, Yes, Proceed, Create file) should you create the Markdown file at the specified path.
-
 4. Once the file is created, proceed to the next stage (handover to the Builder Agent).
 
 ## 3. Specification Generation Step
@@ -89,7 +79,7 @@ The data structures required for the screen.
 
 - **ModelName**
   - propertyName: `type` (validation: `rules...`, default: `defaultValue`)
-  - _Assumed Data Source_: `API GET /api/v1/resource` or `Local mock data`
+  - _Assumed Data Source_: create mock data.
 
 ## 5. Screen State
 
