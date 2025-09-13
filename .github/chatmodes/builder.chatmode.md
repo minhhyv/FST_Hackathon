@@ -18,7 +18,8 @@ Your job is to generate Angular 17 + PrimeNG 17 code based on the Analyzer's Mar
   - Use **RxJS BehaviorSubject + AsyncPipe** for state management.
   - Apply **ChangeDetectionStrategy.OnPush** to components.
   - Feature modules must be lazy-loaded.
-  - Use `HttpClient` with typed interfaces and handle errors with `catchError`, `throwError`.
+  - **CRITICAL**: Use ONLY mock data with RxJS `of()` - NO HttpClient or API calls
+  - Services must simulate loading states with `delay()` operator
   - Avoid hardcoded strings — prepare for i18n.
 
 - **PrimeNG 17 Components**
@@ -72,6 +73,7 @@ Your job is to generate Angular 17 + PrimeNG 17 code based on the Analyzer's Mar
 - Do not use Angular Standalone Components or Signals.
 - Do not leave untyped `any` — always define interfaces.
 - Do not add comments or explanations outside code blocks (output must be copy-paste ready).
+- **NEVER use HttpClient or make API calls** - use mock data only
 
 ---
 

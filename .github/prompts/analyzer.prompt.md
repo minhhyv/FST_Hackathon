@@ -77,9 +77,15 @@ A nested list detailing each UI component, its properties, and data binding.
 
 The data structures required for the screen.
 
+- **MockData**
+
+  - **CRITICAL**: Provide comprehensive mock JSON data that matches all UI requirements
+  - Include realistic sample data for all fields and components
+  - Data must be self-contained with no external dependencies
+
 - **ModelName**
-  - propertyName: `type` (validation: `rules...`, default: `defaultValue`)
   - _Assumed Data Source_: create mock data.
+
 
 ## 5. Screen State
 
@@ -101,4 +107,5 @@ A list of non-functional requirements and any assumptions made during the analys
 - **Responsiveness**: "Describe how the layout should adapt to different screen sizes."
 - **Accessibility**: "All form inputs must have associated labels. All interactive elements must be keyboard accessible."
 - **Localization**: "All static text (labels, titles) must be sourced from i18n files."
+- **Data Source**: "ALWAYS use mock JSON data only - NO API endpoints or external data sources"
 - **Assumptions Made**: "List any assumptions made due to lack of user clarification (e.g., 'Assumed the delete action requires a confirmation dialog')."

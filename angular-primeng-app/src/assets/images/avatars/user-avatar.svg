@@ -1,0 +1,30 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#grad2)" rx="60"/>
+  <!-- Face -->
+  <circle cx="60" cy="42" r="18" fill="#FDE68A" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Hair -->
+  <path d="M 42 30 Q 60 18 78 30 Q 76 22 60 20 Q 44 22 42 30" fill="#1F2937"/>
+  <!-- Eyes -->
+  <circle cx="54" cy="40" r="2" fill="#1F2937"/>
+  <circle cx="66" cy="40" r="2" fill="#1F2937"/>
+  <!-- Glasses -->
+  <circle cx="54" cy="40" r="6" fill="none" stroke="#374151" stroke-width="1.5"/>
+  <circle cx="66" cy="40" r="6" fill="none" stroke="#374151" stroke-width="1.5"/>
+  <line x1="60" y1="40" x2="60" y2="40" stroke="#374151" stroke-width="1.5"/>
+  <!-- Nose -->
+  <line x1="60" y1="42" x2="60" y2="46" stroke="#F59E0B" stroke-width="1"/>
+  <!-- Mouth -->
+  <path d="M 56 48 Q 60 52 64 48" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+  <!-- Body/Shoulders -->
+  <ellipse cx="60" cy="88" rx="28" ry="22" fill="#FFFFFF"/>
+  <!-- Shirt -->
+  <rect x="40" y="75" width="40" height="25" fill="#1F2937" rx="5"/>
+  <!-- Collar -->
+  <polygon points="50,75 52,80 58,75 62,75 68,80 70,75" fill="#FFFFFF"/>
+</svg>

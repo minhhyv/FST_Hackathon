@@ -1,0 +1,6 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" fill="#DC2626" rx="60"/>
+  <circle cx="60" cy="45" r="20" fill="#FFFFFF"/>
+  <ellipse cx="60" cy="95" rx="30" ry="25" fill="#FFFFFF"/>
+  <text x="60" y="110" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DEFAULT</text>
+</svg>

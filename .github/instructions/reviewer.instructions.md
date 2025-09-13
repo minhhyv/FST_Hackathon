@@ -80,7 +80,6 @@ Create a report with the following sections:
 - HTTP & RxJS: PASS/FAIL
 - Templates (trackBy, minimal logic): PASS/FAIL
 - Styling & Theme & A11y: PASS/FAIL
-- Testing Basics: PASS/FAIL
 
 5. **Findings & Fixes**
 

@@ -60,11 +60,11 @@ Instructions for generating high-quality Angular applications with TypeScript, u
 
 ### HTTP Client
 
-- Use Angular **HttpClient** with typed responses (ref: https://v17.angular.io/guide/http)
-- Manage requests with RxJS operators (`map`, `switchMap`, `catchError`)
-- Use interceptors for auth, headers, and error handling (ref: https://v17.angular.io/guide/http#intercepting-requests-and-responses)
-- Implement XSRF protection (ref: https://v17.angular.io/guide/http#security-xsrf-protection)
+- **CRITICAL**: DO NOT use Angular HttpClient for data fetching - use MOCK DATA ONLY
+- For mock data services, use RxJS `of()` with `delay()` to simulate loading states
+- Use RxJS operators (`map`, `switchMap`, `catchError`) for data transformation
 - Always unsubscribe using `AsyncPipe` or `takeUntil`
+- **Data Source**: All data must come from local mock JSON - NO API calls
 
 ### Styling
 
@@ -108,7 +108,6 @@ Instructions for generating high-quality Angular applications with TypeScript, u
 
 - Write unit tests with Jasmine + Karma (ref: https://v17.angular.io/guide/testing)
 - Component testing with **TestBed** (ref: https://v17.angular.io/guide/testing-components-basics)
-- E2E tests using Protractor (default in v17) or Cypress (ref: https://v17.angular.io/guide/e2e-testing)
 
 ---
 
@@ -138,6 +137,7 @@ This project follows a **core + feature** structure. Input specs may define new 
 - **Components are dumb**: keep only input/output and template logic inside them.
 - **All data/state logic must go to services** inside `/services/`.
 - **All type/interface definitions must go to `/models/`.**
+- **CRITICAL**: Services must ONLY use mock JSON data - NO HTTP calls or API endpoints
 
 ### Naming Conventions
 
@@ -167,3 +167,4 @@ This project follows a **core + feature** structure. Input specs may define new 
 - Use Angular built-in **i18n** (ref: https://v17.angular.io/guide/i18n)
 - DRY principle with shared modules/utilities
 - Consistent use of RxJS Observables for state and data flow
+- **CRITICAL**: All services must use mock JSON data with RxJS `of()` - NO HTTP client usage
