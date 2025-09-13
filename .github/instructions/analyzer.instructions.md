@@ -2,7 +2,7 @@
 applyTo: "**/*.{png,jpg,jpeg,md}"
 ---
 
-## description: 'Instructions for Analyzer Agent to convert wireframes/images into structured Markdown UI specifications for Angular 17 + PrimeNG 17.'
+## description: 'Instructions for Analyzer Agent to convert wireframes/images into structured Markdown UI specifications'
 
 # Analyzer Instructions – Wireframe to Spec
 
@@ -63,7 +63,8 @@ The output must be saved in the `docs/analyzer/` folder with the prescribed nami
 
 - **ModelName**
   - propertyName: type, validation, default value
-  - **Data Source**: Mock JSON data only (no API endpoints)
+  - Data source assumptions (mock / static)
+
 
 ## Events & Interactions
 

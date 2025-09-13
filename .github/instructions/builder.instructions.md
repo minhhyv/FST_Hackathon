@@ -108,8 +108,6 @@ Instructions for generating high-quality Angular applications with TypeScript, u
 
 - Write unit tests with Jasmine + Karma (ref: https://v17.angular.io/guide/testing)
 - Component testing with **TestBed** (ref: https://v17.angular.io/guide/testing-components-basics)
-- **NO HttpClientTestingModule needed** - test services with mock data directly
-- E2E tests using Protractor (default in v17) or Cypress (ref: https://v17.angular.io/guide/e2e-testing)
 
 ---
 
