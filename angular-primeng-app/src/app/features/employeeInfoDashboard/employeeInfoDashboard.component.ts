@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EmployeeService } from '../../services/employee.service';
 import { MessageService } from '../../services/message.service';
 import { AvatarService } from '../../services/avatar.service';
 import { Employee, Certificate, Award, WorkHistory } from '../../models/employee.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { EMPLOYEE_MOCK_DATA } from '../../data/employee.mock';
 
 @Component({
   selector: 'app-employee-info-dashboard',
@@ -49,7 +49,6 @@ export class EmployeeInfoDashboardComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
-    private employeeService: EmployeeService,
     private messageService: MessageService,
     private avatarService: AvatarService
   ) {}
@@ -91,25 +90,23 @@ export class EmployeeInfoDashboardComponent implements OnInit, OnDestroy {
 
   loadEmployeeData(): void {
     this.isLoading = true;
-    this.employeeService.getEmployeeById('emp-001')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (employee) => {
-          this.employee = employee;
-          this.isLoading = false;
-          this.chartDataLoaded = true;
-          this.employeeService.setEmployee(employee);
-        },
-        error: (error) => {
-          this.errorMessage = 'Failed to load employee data';
-          this.isLoading = false;
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Failed to load employee information'
-          });
-        }
-      });
+
+    // Simulate loading delay with setTimeout
+    setTimeout(() => {
+      try {
+        this.employee = EMPLOYEE_MOCK_DATA;
+        this.isLoading = false;
+        this.chartDataLoaded = true;
+      } catch (error) {
+        this.errorMessage = 'Failed to load employee data';
+        this.isLoading = false;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load employee information'
+        });
+      }
+    }, 1000); // 1 second delay to simulate loading
   }
 
   onChartHover(event: any): void {

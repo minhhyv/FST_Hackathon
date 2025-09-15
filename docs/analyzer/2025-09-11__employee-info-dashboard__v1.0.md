@@ -359,6 +359,6 @@ A comprehensive employee information dashboard that displays detailed employee p
   - "Assumed this is a view-only dashboard with no edit capabilities for employee information"
   - "Assumed charts are interactive with hover tooltips but no drill-down navigation"
   - "Assumed certificate and award sections can be expanded/collapsed for better space management"
-  - "Assumed the dashboard loads data from multiple API endpoints for different sections"
-  - "Assumed real-time updates are not required, data is loaded once on component initialization"
+  - "Assumed the dashboard loads data from local mock JSON - NO API endpoints used"
+  - "Assumed real-time updates are not required, data is loaded once from mock data on component initialization"
   - "Mock data includes comprehensive chart datasets matching the visual design patterns"

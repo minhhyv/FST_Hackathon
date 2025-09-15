@@ -7,11 +7,8 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'leave',
-    loadChildren: () => import('./features/leaveApplicationDashboard/leaveApplicationDashboard.module').then(m => m.LeaveApplicationDashboardModule)
-  },
-  {
     path: 'employee-info',
     loadChildren: () => import('./features/employeeInfoDashboard/employeeInfoDashboard.module').then(m => m.EmployeeInfoDashboardModule)
-  }
+  },
+
 ];
